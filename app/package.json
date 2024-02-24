@@ -1,0 +1,16 @@
+{
+  "name": "blockdefend-snap-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite --port 3000",
+    "start": "vite preview --port 3000"
+  },
+  "devDependencies": {
+    "@metamask/providers": "^14.0.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4"
+  }
+}
