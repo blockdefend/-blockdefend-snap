@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "description": "Blockdefend AI proactively protects you from malicious smart contracts and phishing websites.",
+  "proposedName": "BlockDefend",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+  },
+  "source": {
+    "shasum": "SCXySLWv7T0r7MYX7UYxYuMa1TgbBZomD3DZ08Y5cyE=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "packageName": "blockdefend",
+        "registry": "https://registry.npmjs.org/",
+        "iconPath": "assets/logo.svg"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_dialog": {},
+    "endowment:transaction-insight": {},
+    "endowment:lifecycle-hooks": {}
+  },
+  "manifestVersion": "0.1"
+}
