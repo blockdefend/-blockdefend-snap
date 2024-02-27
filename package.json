@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "@metamask/snaps-sdk": "^2.1.0",
-    "buffer": "^6.0.3"
+    "buffer": "^6.0.3",
+    "viem": "^2.7.15"
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",
