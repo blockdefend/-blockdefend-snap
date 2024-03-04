@@ -1,4 +1,6 @@
 /** @notice Imports */
+import type { Component } from "@metamask/snaps-sdk";
+import { heading, text, divider } from "@metamask/snaps-sdk";
 import { API_KEYS } from "../constants";
 
 /// Returns if chainId available for simulation.
@@ -44,3 +46,75 @@ export const simulateTransaction = ({
       .catch((err) => reject(err));
   });
 };
+
+export const getNativeSecurityOverview = (
+  address: string
+): Promise<Component[]> =>
+  new Promise((resolve, reject) =>
+    fetch(
+      `https://api.gopluslabs.io/api/v1/address_security/${address}?chain_id=1`
+    )
+      .then((response) => response.json())
+      .then(({ result, code }: GetNativeSecurityOverviewResponse) => {
+        if (code !== 1) reject("Not found");
+
+        const insights: Component[] = [
+          heading("🔎 Security Overview"),
+          divider(),
+          text(
+            `Cyber Crime: ${!Boolean(Number(result.cybercrime)) ? "❌" : "✅"}`
+          ),
+          text(
+            `Money Laundering: ${
+              !Boolean(Number(result.money_laundering)) ? "❌" : "✅"
+            }`
+          ),
+          text(
+            `Financial Crime: ${
+              !Boolean(Number(result.financial_crime)) ? "❌" : "✅"
+            }`
+          ),
+          text(
+            `Darkweb Transactions: ${
+              !Boolean(Number(result.darkweb_transactions)) ? "❌" : "✅"
+            }`
+          ),
+          text(
+            `Phishing Activities: ${
+              !Boolean(Number(result.phishing_activities)) ? "❌" : "✅"
+            }`
+          ),
+          text(`Fake KYC: ${!Boolean(Number(result.fake_kyc)) ? "❌" : "✅"}`),
+          text(
+            `Blacklist: ${
+              !Boolean(Number(result.blacklist_doubt)) ? "❌" : "✅"
+            }`
+          ),
+          text(
+            `Stealing Attack: ${
+              !Boolean(Number(result.stealing_attack)) ? "❌" : "✅"
+            }`
+          ),
+          text(
+            `Blackmail Activities: ${
+              !Boolean(Number(result.blackmail_activities)) ? "❌" : "✅"
+            }`
+          ),
+          text(
+            `Sanctioned: ${!Boolean(Number(result.sanctioned)) ? "❌" : "✅"}`
+          ),
+          text(
+            `Malicious Mining Activities: ${
+              !Boolean(Number(result.malicious_mining_activities)) ? "❌" : "✅"
+            }`
+          ),
+          text(
+            `Honeypot: ${
+              !Boolean(Number(result.honeypot_related_address)) ? "❌" : "✅"
+            }`
+          ),
+        ];
+        resolve(insights);
+      })
+      .catch((err) => reject(err))
+  );

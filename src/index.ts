@@ -6,6 +6,7 @@ import type {
 } from "@metamask/snaps-sdk";
 import { heading, panel, text, divider, copyable } from "@metamask/snaps-sdk";
 import {
+  getNativeSecurityOverview,
   isChainIdAvailableForSimulation,
   simulateTransaction,
 } from "./lib/helpers";
@@ -72,6 +73,14 @@ export const onTransaction: OnTransactionHandler = async ({
       divider(),
     ];
 
+    /// Go security
+    let securityResult: Component[] = [];
+    if (chainId === "eip155:1") {
+      try {
+        securityResult = await getNativeSecurityOverview(transaction.to);
+      } catch (error) {}
+    }
+
     /// If any revert occurred!.
     if (simulationError) {
       insights.push(
@@ -82,7 +91,7 @@ export const onTransaction: OnTransactionHandler = async ({
         insights.push(text(simulationError.revertReason));
 
       return {
-        content: panel(insights),
+        content: panel([...insights, ...securityResult]),
       };
     }
 
@@ -95,7 +104,7 @@ export const onTransaction: OnTransactionHandler = async ({
         insights.push(text(simulationResult.error.revertReason));
 
       return {
-        content: panel(insights),
+        content: panel([...insights, ...securityResult]),
       };
     }
 
@@ -110,7 +119,7 @@ export const onTransaction: OnTransactionHandler = async ({
       );
 
       return {
-        content: panel(insights),
+        content: panel([...insights, ...securityResult]),
       };
     }
 
@@ -153,7 +162,7 @@ export const onTransaction: OnTransactionHandler = async ({
     });
 
     return {
-      content: panel(insights),
+      content: panel([...insights, ...securityResult]),
     };
   } catch (error) {
     return {

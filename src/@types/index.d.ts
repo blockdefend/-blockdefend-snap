@@ -40,3 +40,21 @@ type SimulateTransactionResponse = {
     revertReason: string | null;
   } | null;
 };
+
+type GetNativeSecurityOverviewResponse = {
+  code: number;
+  result: {
+    cybercrime: "0" | "1";
+    money_laundering: "0" | "1";
+    financial_crime: "0" | "1";
+    darkweb_transactions: "0" | "1";
+    phishing_activities: "0" | "1";
+    fake_kyc: "0" | "1";
+    blacklist_doubt: "0" | "1";
+    stealing_attack: "0" | "1";
+    blackmail_activities: "0" | "1";
+    sanctioned: "0" | "1";
+    malicious_mining_activities: "0" | "1";
+    honeypot_related_address: "0" | "1";
+  };
+};
