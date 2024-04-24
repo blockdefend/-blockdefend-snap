@@ -4,14 +4,14 @@
   "proposedName": "BlockDefend",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "https://github.com/blockdefend/metamask-snap"
   },
   "source": {
-    "shasum": "Zzybrn1+TU0s6t0zrIzqdK5Ks8KiQptfB7enT+UaqyM=",
+    "shasum": "Cdha+JtQLDvL7uQLCqvUl/tc+0guOhC2gfzliNoxhaA=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "packageName": "blockdefend",
+        "packageName": "@blockdefend/snap",
         "registry": "https://registry.npmjs.org/",
         "iconPath": "assets/logo.svg"
       }
