@@ -1,6 +1,6 @@
 {
   "name": "@blockdefend/snap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Blockdefend AI proactively protects you from malicious smart contracts and phishing websites.",
   "repository": {
     "type": "git",
@@ -9,6 +9,7 @@
   "license": "MIT",
   "main": "./dist/bundle.js",
   "files": [
+    "assets",
     "dist/",
     "snap.manifest.json"
   ],

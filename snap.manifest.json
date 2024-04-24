@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Blockdefend AI proactively protects you from malicious smart contracts and phishing websites.",
   "proposedName": "BlockDefend",
   "repository": {
@@ -7,7 +7,7 @@
     "url": "https://github.com/blockdefend/metamask-snap"
   },
   "source": {
-    "shasum": "Cdha+JtQLDvL7uQLCqvUl/tc+0guOhC2gfzliNoxhaA=",
+    "shasum": "qrIvLo5cC81RdB/09k9y7KG3p+epjdYGwha/ZZr9F/8=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
